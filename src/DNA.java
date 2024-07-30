@@ -4,13 +4,14 @@
  * for Adventures in Algorithms
  * at Menlo School in Atherton, CA
  *
+ * Completed by: [YOUR NAME HERE]
+ *
  */
 
 public class DNA {
 
     /**
-     * This represents a typical student solution using indexOf() and substring().
-     *      indexOf -- runs in O(n * m) time, using brute force approach.
+     * TODO: Complete this function, STRCount(), to return longest consecutive run of STR in sequence.
      */
     public static int STRCount(String sequence, String STR) {
 
