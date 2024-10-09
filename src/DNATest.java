@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -9,12 +8,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * DNA
+ * <p>
  * A puzzle created by Zach Blick
  * for Adventures in Algorithms
  * at Menlo School in Atherton, CA
- *
+ *</p>
+ * <p>
  * To use this test file, run either the entire thing or individual tests (one at a time).
  * Each test will load data from [test number].txt, which is in the test_files directory.
+ * </p>
  */
 
 public class DNATest {
