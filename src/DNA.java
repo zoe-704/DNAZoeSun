@@ -1,11 +1,13 @@
 /**
  * DNA
+ * <p>
  * A puzzle created by Zach Blick
  * for Adventures in Algorithms
  * at Menlo School in Atherton, CA
- *
+ *</p>
+ * <p>
  * Completed by: [YOUR NAME HERE]
- *
+ *</p>
  */
 
 public class DNA {

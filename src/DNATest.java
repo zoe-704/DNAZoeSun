@@ -71,10 +71,10 @@ public class DNATest {
             while ((line = testReader.readLine()) != null) {
                 int lineLen = line.length();
                 for (int i = 0; i < lineLen; i++) {
-                    sequenceArr[index++] = line.charAt(i);
+                    sequenceArr[index++] = Character.toUpperCase(line.charAt(i));
                 }
             }
-            int expected = 8;
+            int expected = 13;
             String sequence = new String(sequenceArr);
             assertEquals(expected, studentSolution.STRCount(sequence, "CAG"),
                     "Test Largest failed: should return " + expected);
