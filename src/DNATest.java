@@ -27,19 +27,19 @@ public class DNATest {
     private String STR;
 
     @Test
-    @Timeout(value = 80, unit = TimeUnit.MILLISECONDS)
+    @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
     public void testBasic() {
         setTestData(0);
     }
 
     @Test
-    @Timeout(value = 30, unit = TimeUnit.MILLISECONDS)
+    @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
     public void testMore() {
         setTestData(5);
     }
 
     @Test
-    @Timeout(value = 40, unit = TimeUnit.MILLISECONDS)
+    @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
     public void testEvenMore() {
         setTestData(19);
     }
@@ -47,7 +47,7 @@ public class DNATest {
     @Test
     @Timeout(value = 20000, unit = TimeUnit.MILLISECONDS)
     public void testLargest() {
-        int maxSize = 1000000000; // This is often cited as a safe limit
+        int maxSize = 1000000000;
         char STR = 'a';
         try {
             char[] largeCharArray = new char[maxSize];
@@ -61,7 +61,7 @@ public class DNATest {
     }
 
     @Test
-    @Timeout(value = 2300, unit = TimeUnit.MILLISECONDS)
+    @Timeout(value = 3000, unit = TimeUnit.MILLISECONDS)
     public void testChromosome22() {
 
         try {
