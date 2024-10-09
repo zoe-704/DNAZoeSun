@@ -1,18 +1,19 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * DNA
+ * DNA 2.0
  * <p>
  * A puzzle created by Zach Blick
  * for Adventures in Algorithms
- * at Menlo School in Atherton, CA
- *</p>
+ * at Menlo School in Atherton, CA.
+ * </p>
  * <p>
  * To use this test file, run either the entire thing or individual tests (one at a time).
  * Each test will load data from [test number].txt, which is in the test_files directory.
@@ -26,33 +27,31 @@ public class DNATest {
     private String STR;
 
     @Test
-    @Timeout(value = 1, unit = TimeUnit.SECONDS)
+    @Timeout(value = 80, unit = TimeUnit.MILLISECONDS)
     public void testBasic() {
         setTestData(0);
     }
 
     @Test
-    @Timeout(value = 1, unit = TimeUnit.SECONDS)
+    @Timeout(value = 30, unit = TimeUnit.MILLISECONDS)
     public void testMore() {
         setTestData(5);
     }
 
     @Test
-    @Timeout(value = 1, unit = TimeUnit.SECONDS)
+    @Timeout(value = 40, unit = TimeUnit.MILLISECONDS)
     public void testEvenMore() {
         setTestData(19);
     }
 
     @Test
-    @Timeout(value = 30, unit = TimeUnit.SECONDS)
+    @Timeout(value = 20000, unit = TimeUnit.MILLISECONDS)
     public void testLargest() {
         int maxSize = 1000000000; // This is often cited as a safe limit
         char STR = 'a';
         try {
             char[] largeCharArray = new char[maxSize];
-            for (int i = 0; i < maxSize; i++) {
-                largeCharArray[i] = STR;
-            }
+            Arrays.fill(largeCharArray, STR);
             String largeString = new String(largeCharArray);
             assertEquals(maxSize / 2, studentSolution.STRCount(largeString, "aa"),
                     "Test Largest failed: should return " + maxSize / 2);
@@ -62,7 +61,7 @@ public class DNATest {
     }
 
     @Test
-    @Timeout(value = 10, unit = TimeUnit.SECONDS)
+    @Timeout(value = 2300, unit = TimeUnit.MILLISECONDS)
     public void testChromosome22() {
 
         try {
