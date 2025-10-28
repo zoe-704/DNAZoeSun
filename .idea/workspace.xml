@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d822f69-9e3c-4e2b-8ee1-11779bb646bd" name="Changes" comment="DNA V1">
+    <list default="true" id="6d822f69-9e3c-4e2b-8ee1-11779bb646bd" name="Changes" comment="DNA work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WORK_LOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/WORK_LOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DNA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DNA.java" afterDir="false" />
@@ -49,9 +49,9 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.DNATest.executor": "Debug",
+    "JUnit.DNATest.executor": "Run",
     "JUnit.DNATest.testBasic.executor": "Run",
-    "JUnit.DNATest.testTricky.executor": "Debug",
+    "JUnit.DNATest.testTricky.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -61,7 +61,7 @@
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.DNATest.testTricky">
+  <component name="RunManager" selected="JUnit.DNATest">
     <configuration name="DNATest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DNA 2.0 Student Code" />
       <option name="PACKAGE_NAME" value="" />
@@ -93,8 +93,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DNATest.testTricky" />
         <item itemvalue="JUnit.DNATest" />
+        <item itemvalue="JUnit.DNATest.testTricky" />
         <item itemvalue="JUnit.DNATest.testBasic" />
       </list>
     </recent_temporary>
@@ -132,12 +132,21 @@
       <option name="project" value="LOCAL" />
       <updated>1761256816482</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="DNA work">
+      <option name="closed" value="true" />
+      <created>1761611613474</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1761611613474</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="DNA V1" />
-    <option name="LAST_COMMIT_MESSAGE" value="DNA V1" />
+    <MESSAGE value="DNA work" />
+    <option name="LAST_COMMIT_MESSAGE" value="DNA work" />
   </component>
 </project>
