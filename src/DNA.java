@@ -11,14 +11,14 @@
  */
 
 public class DNA {
-    static final int R = 256;
-    static final long p = (long) 543211019;
+    static final int RADIX = 4; // only 4 letters, would be 256 otherwise
+    static final long P = 543_211_019;
 
-    // create a hash set
-    public static long hash(String s, int n) {
+    // Creates hash using horner's method
+    public static long hash(String s, int start, int n) {
         long h = 0;
-        for (int i = 0; i < n; i++) {
-            h = (h * R + s.charAt(i) % p);
+        for (int i = start; i < start + n; i++) {
+            h = (h * RADIX + s.charAt(i)) % P;
         }
         return h;
     }
@@ -27,34 +27,62 @@ public class DNA {
         int seqLength = sequence.length(), strLength = STR.length();
         if (strLength > seqLength) return 0; //  STR cannot be longer than the DNA sequence
 
-        int maxCount = 0;
-        long strHash = hash(STR, strLength),
-                seqHash = hash(sequence.substring(0, strLength), strLength);
+        int maxCount = 0, count = 0;
+        // hash for STR and first part of sequence
+        long strHash = hash(STR, 0, strLength), seqHash = hash(sequence, 0, strLength);
 
-        long[] array = new long[seqLength/strLength + 1];
-        array[0] = seqHash;
-        for (int i = strLength; i < seqLength; i++) {
-            int count = 0;
-            // begin checking for consecutive appearances
-            while (strHash == seqHash) {
+        // Iterate through the entire sequence
+        for (int i = 0; i <= seqLength - strLength; i++) {
+            // Increment counter if subsequence and STR hashes match
+            if (strHash == seqHash) {
                 count++;
-                // subtract first*R^(m-1) modded
-                long r_pow = 1;
-                for (int j = 0; j < i-1; j++) r_pow = r_pow*R%p;
-                long new_hash = (long) ((seqHash + p) - sequence.charAt(i - strLength) * r_pow % p) % p;
-                    seqHash = ((new_hash * R) + sequence.charAt(i)) % p;
+                maxCount = Math.max(maxCount, count);
+                i += strLength-1; // move to next candidate
+                if (i + strLength < seqLength) {
+                    seqHash = hash(sequence, i + 1, strLength);
+                }
+            } else { // Subsequence and STR hashes do not match
+                // Remove first letter and add letter to subsequence hash
+                count = 0;
+                long first = (long)Math.pow(RADIX, strLength - 1);
+                if (i + strLength < seqLength) {
+                    seqHash = ((seqHash - sequence.charAt(i) * first % P + P) % P);
+                    seqHash = (seqHash * RADIX + sequence.charAt(i + strLength)) % P;
+                }
+
+                //seqHash = ((seqHash - sequence.charAt(i) * first % P + P) % P);
+                //seqHash = (seqHash * RADIX + sequence.charAt(i + strLength)) % P;
+
+                //seqHash = (seqHash + P) - (sequence.charAt(i) * first % P) % P;
+                //seqHash = (seqHash * RADIX + sequence.charAt(i + strLength)) % P;
+            }
+        }
+        return maxCount;
+    }
+}
+
+    /*
+            long curHash = hash(sequence.substring(j, j + strLength), strLength);;
+            // begin checking for consecutive appearances
+            while (j + strLength <= seqLength && curHash == strHash) {
+                count++;
+                j += strLength;
+                // Update hash for next substring window
+                if (j + strLength <= seqLength) {
+                    curHash = (curHash + P - sequence.charAt(j - strLength) * RM % P) % P;
+                    curHash = (curHash * RADIX + sequence.charAt(j + strLength - 1)) % P;
+                }
             }
             maxCount = Math.max(maxCount, count);
-            if (array[i-strLength+1] == 0) {
-                array[i-strLength+1] = hash(sequence.substring(1 + (i - strLength), i+1), strLength);
+
+            // Move rolling window by 1 character for outer loop
+            if (i + strLength < seqLength) {
+                seqHash = (seqHash + P - sequence.charAt(i) * RM % P) % P;
+                seqHash = (seqHash * RADIX + sequence.charAt(i + strLength)) % P;
             }
-            seqHash = array[i-strLength+1];
+
         }
-
-
-         /*
-         DP
-
+        /* DP approach
         int dp[] = new int[seqLength], maxCount = 0;
         // iterate backwards and check if an STR sequence starts at index i
         for (int i = seqLength - strLength; i >= 0; i--) {
@@ -65,32 +93,10 @@ public class DNA {
                 maxCount = Math.max(maxCount, dp[i]);
             }
         }
-
-
-        BASIC
-        int maxCount = 0;
-        int i = 0;
-        while (i <= seqLength - strLength) {
-            int count = 0;
-            while (i + strLength <= seqLength && sequence.substring(i, i + strLength).equals(STR)) {
-                count++;
-                i += strLength;
-            }
-            i -= strLength;
-            maxCount= Math.max(maxCount, count);
-            i++;
-        }
-        /*
-        for (int i = 0; i <= seqLength - strLength; i++) {
-            int count = 0, j = i;
-            while (j + strLength <= seqLength && sequence.substring(j, j + strLength).equals(STR)) {
-                count++;
-                j += strLength;
-            }
-            maxCount = Math.max(maxCount, count);
-        }
         */
+    /*
         return maxCount;
 
     }
 }
+*/
